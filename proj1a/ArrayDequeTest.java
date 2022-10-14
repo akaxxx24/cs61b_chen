@@ -6,51 +6,25 @@ class ArrayDequeTest {
 
     @Test
     public static void testaddsizeempty() {
-        ArrayDeque<String> dq = new ArrayDeque<>();
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
         assertEquals(true, dq.isEmpty());
+        dq.addFirst(1);
+        dq.addFirst(2);
+        dq.addFirst(3);
+        dq.addFirst(4);
+        dq.addFirst(5);
+        dq.addFirst(6);
+        dq.addFirst(7);
+        assertEquals(7 , dq.size());
+        dq.addFirst(8);
+        assertEquals(8 ,dq.size());
+        dq.addFirst(9);
+        assertEquals(9 ,dq.size());
 
-        dq.addFirst("first");
-        assertEquals(1, dq.size());
 
-        dq.addLast("last");
-        assertEquals(2, dq.size());
 
-        dq.printDeque();
-
-        String first = dq.removeFirst();
-        assertEquals("first", first);
-
-        String last = dq.removeLast();
-        assertEquals("last", last);
-
-        assertEquals(0, dq.size());
     }
 
-    public ArrayDeque<Integer> create(int[] array) {
-        ArrayDeque<Integer> dq = new ArrayDeque<>();
-        for (int x : array) {
-            dq.addLast(x);
-        }
-        return dq;
-    }
-    @Test
-    public static void testgrowshrink() {
-        ArrayDeque<Integer> dq = new ArrayDeque<>();
-        for (int i = 0; i < 16; i++) {
-            dq.addLast(i);
-        }
-        for (int i = -16; i < 0; i++) {
-            dq.addFirst(i);
-        }
-        for (int i = -1; i >= 16; i--) {
-            assertEquals(i, dq.get(i));
-        }
-        for (int i = 0; i < 30; i++) {
-            dq.removeFirst();
-        }
-        assertEquals(2, dq.size());
-        dq.printDeque();
-    }
     public static void main(String[] args) {
         testaddsizeempty();
     }
